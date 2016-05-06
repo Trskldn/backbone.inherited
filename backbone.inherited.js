@@ -17,8 +17,7 @@
 			try{
 				method = this.__proto__.constructor.__super__[name];
 			} catch(e){
-				console.warn('can\'t find ',name, ' in prototype chains. error: ', e);
-				throw e;
+				// console.warn("can't find ", name, " in prototype chains. error: ", e);
 			}
 			if (typeof method === 'function') return method.apply(this, args);
 		}
