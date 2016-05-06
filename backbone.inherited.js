@@ -12,7 +12,7 @@
 	return {
 		inherited: function(name) {
 			var method,
-				args = [].slice.call(arguments, 1);
+			    args = [].slice.call(arguments, 1);
 
 			try{
 				method = this.__proto__.constructor.__super__[name];
