@@ -1,1 +1,1 @@
-# BackboneInheretidMixin
+# BackboneInheritedMixin
