@@ -3,8 +3,7 @@
 ```javascript
 		Model1 = Backbone.Model.extend(_.extend({
 			someMethod: function(){
-				done();
-				return 'M1.someMethod returned value';
+				return 'Model1.someMethod returned value';
 			}
 		}, InheritedMixin));
 
