@@ -1,6 +1,6 @@
 # BackboneInheritedMixin
 
-'''javascript
+```javascript
 		M1 = Backbone.Model.extend(_.extend({
 			someMethod: function(){
 				done();
@@ -17,4 +17,4 @@
 
 		m3 = new M3();
 		m3.someMethod();
-'''
+```
