@@ -18,7 +18,7 @@
 			    parent = this;
 
 			while((parent = Object.getPrototypeOf(parent))){
-				if (parent.hasOwnProperty(name) && parent[name] === impl) {
+				if (!implFound && parent.hasOwnProperty(name) && parent[name] === impl) {
 					implFound = true;
 					continue;
 				}
