@@ -27,7 +27,7 @@
 					break;
 				}
 			}
-			
+
 			if (typeof method === 'function') return method.apply(this, args);
 		}
 	};
