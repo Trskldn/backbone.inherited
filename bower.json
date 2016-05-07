@@ -1,0 +1,22 @@
+{
+  "name": "backbone.inherited",
+  "description": "backbone inherited mixin for .extend()",
+  "main": "backbone.inherited.js",
+  "authors": [
+    "trskldn"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "backbone",
+    "inherited",
+    "class"
+  ],
+  "homepage": "https://github.com/Trskldn/backbone.inherited",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

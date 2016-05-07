@@ -12,13 +12,22 @@
 	return {
 		inherited: function(name) {
 			var method,
-			    args = [].slice.call(arguments, 1);
+			    args = [].slice.call(arguments, 1),
+			    impl = arguments.callee.caller,
+			    implFound = false,
+			    parent = this;
 
-			try{
-				method = this.__proto__.constructor.__super__[name];
-			} catch(e){
-				// console.warn("can't find ", name, " in prototype chains. error: ", e);
+			while((parent = Object.getPrototypeOf(parent))){
+				if (parent.hasOwnProperty(name) && parent[name] === impl) {
+					implFound = true;
+					continue;
+				}
+				if (implFound && parent.hasOwnProperty(name)) {
+					method = parent[name];
+					break;
+				}
 			}
+			
 			if (typeof method === 'function') return method.apply(this, args);
 		}
 	};
