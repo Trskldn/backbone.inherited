@@ -1,21 +1,22 @@
 var expect = require('chai').expect;
-var InheritedMixin = require('../backbone.inherited.js'); 
-var _ = require('underscore'); 
-var Backbone = require('backbone'); 
+var InheritedMixin = require('../backbone.inherited.js');
+var _ = require('underscore');
+var Backbone = require('backbone');
 
 describe('InheritedMixin', function() {
 
 	it('this.inherited("someMethod") should call parents prototype chained methods', function() {
- 
+
 		var counter = 0;
 		var results = [];
-		
+
 		Model1 = Backbone.Model.extend(_.extend({
 			someMethod: function(){
 				counter++;
+				this.inherited('someMethod', arguments);
 				if (counter > 10)  return;
-				results.push('Model1.someMethod'); 
-				return 'M1.someMethod returned value'; 
+				results.push('Model1.someMethod');
+				return 'M1.someMethod returned value';
 			}
 		}, InheritedMixin));
 
@@ -23,7 +24,7 @@ describe('InheritedMixin', function() {
 			someMethod:function(){
 				counter++;
 				if (counter > 10)  return;
-				results.push('Model2.someMethod'); 
+				results.push('Model2.someMethod');
 				return this.inherited('someMethod', arguments);
 			}
 		});
@@ -32,7 +33,7 @@ describe('InheritedMixin', function() {
 			someMethod:function(){
 				counter++;
 				if (counter > 10) return;
-				results.push('Model3.someMethod'); 
+				results.push('Model3.someMethod');
 				return this.inherited('someMethod', arguments);
 			}
 		});
